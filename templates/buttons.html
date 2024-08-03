@@ -1,0 +1,46 @@
+{% macro buttons(contato) %}
+<form action="/deletar_contato" method="post" style="display: inline;">
+    <button class="waves-effect waves-light btn-small red" type="submit">
+        <i class="material-icons right">delete</i>DELETAR
+    </button>
+    <input type="hidden" name="email" value="{{contato.email}}">
+</form>
+<a href="#edit-modal-{{ contato.id }}" class="waves-effect waves-light btn-small blue modal-trigger"></a>
+    <i> class="material-icons right"edit</i>Editar
+</a>
+
+<div id="edit-modal-{{ contato.id }}" class="modal">
+    <div class="modal-content">
+        <h4>Adicionar Contatos</h4>
+        <form action="/salvar_contato" method="post">
+            <div class="input-field">
+                <input type="text" id="nome" name="nome" required>
+                <label for="nome">Nome</label>
+            </div>
+
+            <div class="input-field">
+                <input type="text" id="email" name="email" required>
+                <label for="email">email</label>
+            </div>
+
+            <div class="input-field">
+                <input type="text" id="celular" name="celular" required>
+                <label for="celular">celular</label>
+            </div>
+
+            <div class="input-field">
+                <input type="text" id="celular_alt name="celular_alt required>
+                <label for="celular_alt">celular alternativo</label>
+            </div>
+
+            <div class="input-field">
+                <input type="text" id="tags" name="tags" required>
+                <label for="tags">tags</label>
+            </div>
+
+            <button type="submit" class="waves-effect waves-light btn">Salvar</button>
+        </form>
+    </div>
+
+</div>
+{% endmacro %}
